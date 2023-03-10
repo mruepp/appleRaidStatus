@@ -14,13 +14,17 @@ ONLINE=$'Online\nOnline\nOnline\nOnline'
 # echo $ONLINE
 
 if [ "$STATUS" = "$ONLINE" ]; then
-        echo "$RAIDNAME is ONLINE"
+        echo "$(date) $RAIDNAME is ONLINE"
+
         syslog -s -k Facility com.apple.console \
              Level Info \
              Sender Raidalert \
              Message "$RAIDNAME is ONLINE"
+
         exit 0;
 else
+        echo "$(date) $RAIDNAME is DEGRADED"
+
         syslog -s -k Facility com.apple.console \
              Level Warning \
              Sender Raidalert \
