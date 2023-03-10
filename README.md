@@ -17,7 +17,7 @@ plutil
 jq
 tr
 
-jq you can install from homebrew. Be sure to upgrade the :
+jq you can install from homebrew:
 `brew install jq`
 
 ## launched.appleraid.status.plist
@@ -40,7 +40,7 @@ The script runs only if the Volume is mounted at the given Path
     </dict>
 ```
 
-##test-raid.sh
+## test-raid.sh
 Edit the file and configure the following parameters:
 
 Change the RAIDNAME according to your Raid Volume Name (default: Media). Also add the Pushover App Token and the Pushover User Token accordingly to your configuration on the pushover website.
@@ -64,7 +64,7 @@ For example, if you have a Raid 10 with four mirrored slices aka 8 Disks with th
 ONLINE=$'Online\nOnline\nOnline\nOnline'
 ```
 
-## Installation:
+# Installation:
 
 Edit the files and then install the script:
 ```
@@ -79,7 +79,7 @@ sudo chown root:wheel /Library/LaunchDaemons/launched.appleraid.status.plist
 sudo launchctl load -w /Library/LaunchDaemons/launched.appleraid.status.plist
 ```
 
-## Verification:
+# Verification:
 You can tail the err and log output. It should print "RAIDNAME is ONLINE"
 ```
 tail -f /private/tmp/appleraid.log
