@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>launched.appleraid.status</string>
+    <key>Program</key>
+    <string>/usr/local/bin/test-raid.sh</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/bin:/usr/bin:/usr/sbin:/usr/local/bin:/opt/homebrew/bin</string>
+    </dict>
+    <key>UserName</key>
+    <string>root</string>
+    <key>WorkingDirectory</key>
+    <string>/tmp</string>
+    <key>StandardErrorPath</key>
+    <string>/private/tmp/appleraid.err</string>
+    <key>StandardOutPath</key>
+    <string>/private/tmp/appleraid.log</string>
+    <key>KeepAlive</key>
+    <dict>
+    <key>PathState</key>
+        <dict>
+            <key>/Volumes/Media</key>
+            <true/>
+        </dict>
+    </dict>
+
+    <key>ThrottleInterval</key>
+    <integer>600</integer>
+</dict>
+</plist>
+
