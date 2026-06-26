@@ -14,7 +14,7 @@ if [ ! -d "/Volumes/$RAIDNAME" ]; then
     exit 0;
 fi
 
-RESULT="$(diskutil appleRaid list -plist | plutil -convert json -r -o - -- - | jq '.AppleRAIDSets[] | select(.Name | contains("'$RAIDNAME'"))')"
+RESULT="$(diskutil appleRaid list -plist | plutil -convert json -r -o - -- - | jq '.AppleRAIDSets[] | select(.Name == ("'$RAIDNAME'"))')"
 
 STATUS="$(jq '.Members[].MemberStatus' <<< "$RESULT"  | tr -dc '[:alnum:]\n\r')"
 
