@@ -4,6 +4,16 @@ RAIDNAME="Media"
 PUSHOVER_APP_TOKEN=""
 PUSHOVER_USER_TOKEN=""
 
+# Early exit in case the volume is not mounted. Launchd still fires despite the path is not there.
+if [ ! -d "/Volumes/$RAIDNAME" ]; then
+        echo "$(date) $RAIDNAME is NOT MOUNTED -> EXIT"
+        syslog -s -k Facility com.apple.console \
+             Level Info \
+             Sender Raidalert \
+             Message "$RAIDNAME is NOT MOUNTED -> EXIT"
+    exit 0;
+fi
+
 RESULT="$(diskutil appleRaid list -plist | plutil -convert json -r -o - -- - | jq '.AppleRAIDSets[] | select(.Name | contains("'$RAIDNAME'"))')"
 
 STATUS="$(jq '.Members[].MemberStatus' <<< "$RESULT"  | tr -dc '[:alnum:]\n\r')"
