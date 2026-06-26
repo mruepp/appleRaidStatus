@@ -43,8 +43,8 @@ The script runs only if the Volume is mounted at the given Path
 ## test-raid.sh
 Edit the file and configure the following parameters:
 
-Change the RAIDNAME according to your Raid Volume Name (default: Media). Also add the Pushover App Token and the Pushover User Token accordingly to your configuration on the pushover website.
-Be aware that the format of the token MUST be "token=THEAPPTOKEN" and for the user token it must be "user=THEUSERTOKEN"
+Change the RAIDNAME according to your Raid Volume Name (default: Media). Also add the Pushover App Token and the Pushover User Token accordingly to your configuration on the pushover website.\
+*Be aware that the format of the token MUST be "token=THEAPPTOKEN" and for the user token it must be "user=THEUSERTOKEN"*
 
 ```
 RAIDNAME="Media"
